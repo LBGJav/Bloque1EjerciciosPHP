@@ -49,19 +49,19 @@ function calcularImpares1a20(): array {
     return ['lista' => $impares, 'suma' => $suma, 'tipo' => $tipoSumatoria];
 }
 
-// 2. La función principal solicitada que recibe los tres valores de los checkboxes como parámetros
+
 function procesarOpcionesFormulario(bool $mostrarFecha, bool $mostrarPrimos, bool $mostrarImpares): string {
     $htmlSalida = "";
 
-    // Opción 1: Fecha y hora en español
-    if ($mostrarFecha) {
+    // Fecha y hora en español
+    if  ($mostrarFecha) {
         $htmlSalida .= "<section>";
         $htmlSalida .= "<h3>1. Fecha y Hora Actual</h3>";
         $htmlSalida .= "<p>" . obtenerFechaEspanol() . "</p>";
         $htmlSalida .= "</section>";
     }
 
-    // Opción 2: Números primos entre 1 y 100 y su suma
+    // Números primos entre 1 y 100 y su suma
     if ($mostrarPrimos) {
         $datosPrimos = calcularPrimos1a100();
         $htmlSalida .= "<section>";
@@ -71,7 +71,7 @@ function procesarOpcionesFormulario(bool $mostrarFecha, bool $mostrarPrimos, boo
         $htmlSalida .= "</section>";
     }
 
-    // Opción 3: Números impares entre 1 y 20 y paridad de su suma
+    // Números impares entre 1 y 20 y paridad de su suma
     if ($mostrarImpares) {
         $datosImpares = calcularImpares1a20();
         $htmlSalida .= "<section>";
@@ -89,7 +89,6 @@ function procesarOpcionesFormulario(bool $mostrarFecha, bool $mostrarPrimos, boo
     return $htmlSalida;
 }
 
-// 3. Procesamiento de la petición POST
 $resultadoFinal = "";
 $chkFechaChecked = false;
 $chkPrimosChecked = false;
@@ -101,7 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $chkPrimosChecked = isset($_POST['chk_primos']);
     $chkImparesChecked = isset($_POST['chk_impares']);
 
-    // Llamamos a la función única pasándole los tres estados booleanos
     $resultadoFinal = procesarOpcionesFormulario($chkFechaChecked, $chkPrimosChecked, $chkImparesChecked);
 }
 ?>

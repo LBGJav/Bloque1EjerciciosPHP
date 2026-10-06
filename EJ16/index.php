@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $porcentajeDescuento = 20; 
         }
 
-        // 3. Calculamos la cantidad económica a descontar y el total final
+        // Calculamos la cantidad económica a descontar y el total final
         $montoDescuento = $subtotal * ($porcentajeDescuento / 100);
         $totalFinal = $subtotal - $montoDescuento;
     }
